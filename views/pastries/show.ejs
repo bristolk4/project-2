@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title><%=pastry.name%></title>
+  </head>
+  <body>
+    <div class="pastry-details">
+    <h1><%=pastry.name%></h1>
+    <% if (pastry.isFrench) { %>
+        <p>This pastry is French</p>
+    <% } else { %>
+        <p>This pastry is not French</p>
+    <% } %>
+    <div class="pastry-actions">
+    <form class="delete-form" action="/pastries/<%=pastry._id%>?_method=DELETE" method="POST">
+        <button class="delete-button" type="submit">Delete <%=pastry.name%></button>
+    </form>
+    <a class="edit-link" href="/pastries/<%=pastry._id%>/edit">
+        <div class="edit-text">Edit <%=pastry.name%></div>
+    </a>
+    </div>
+    </div>
+    <a class="pastries-index-link" href="/pastries/">
+        <div class="index-link-text">Back to Pastries</div></a>
+  </body>
+</html>
